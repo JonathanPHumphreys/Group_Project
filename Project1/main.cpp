@@ -28,7 +28,6 @@ const double FPS = 60.0;
 
 void ToggleFullscreen(SDL_Window* wind);
 double current_time();
-SDL_Texture* loadFont(string file, int fontsize, string text, int r, int g, int b, int o);
 
 void update()
 {
