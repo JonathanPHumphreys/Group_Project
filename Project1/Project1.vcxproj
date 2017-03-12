@@ -127,6 +127,7 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="constants.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="Obstacles.h" />
