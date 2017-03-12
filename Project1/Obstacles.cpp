@@ -14,6 +14,11 @@ void Obstacles::init_Rect(SDL_Rect & rect, int x, int y, int w, int h)
 		rect.h = h;
 }
 
+void Obstacles::setValue(int amount)
+{
+	value = amount;
+}
+
 Obstacles::~Obstacles()
 {
 }
