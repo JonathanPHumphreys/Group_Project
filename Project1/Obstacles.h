@@ -14,9 +14,7 @@ public:
 	//variables
 	SDL_Texture* Wall;
 	SDL_Texture* Collectible;
-	SDL_Rect wall_source;
 	SDL_Rect wall_destination;
-	SDL_Rect coll_source;
 	SDL_Rect coll_destination;
 	int score = 0;
 };
