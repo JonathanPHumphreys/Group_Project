@@ -3,6 +3,7 @@
 #include "include\SDL_ttf.h" 
 #include "include\SDL_mixer.h"
 #include "Player.h"
+#include "Control.h"
 
 #include <chrono>
 #include <string>
@@ -18,7 +19,6 @@ using namespace std;
 SDL_Window *window;
 SDL_Renderer* renderer;
 SDL_Event event;
-
 
 bool running = true;
 bool keyPress = false;
@@ -109,6 +109,8 @@ int main(int argc, char* argv[])
 	{
 		SDL_GetError();
 	}
+
+
 
 	old_time = current_time();
 
