@@ -9,6 +9,7 @@ using namespace std;
 #include <chrono>
 #include <string>
 #include <vector>
+#include <array>
 #include <fstream>
 #include <iostream>
 #include <cstdlib>

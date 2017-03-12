@@ -6,6 +6,6 @@
 class File {
 	ifstream map_data_in;
 public:
-	int map_data [28][31];
+	array<array<int, 28>, 31> map_data;
 	File();
 };
