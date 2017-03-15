@@ -1,8 +1,6 @@
 #pragma once
 #include "constants.h"
 
-
-
 class File {
 	ifstream map_data_in;
 public:

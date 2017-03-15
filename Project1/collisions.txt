@@ -1,0 +1,33 @@
+// COLLISION DETECTION
+
+bool Sprite::is_colliding(SDL_Rect &a, SDL_Rect &b) {
+	bool collision = true;
+
+	if (a.y + a.h <= b.y) {
+		collision = false;
+	}
+	else if (a.y >= b.y + b.h)
+	{
+		collision = false;
+	}
+	else if (a.x + a.w <= b.x)
+	{
+		collision = false;
+	}
+	else if (a.x >= b.x + b.w)
+	{
+		collision = false;
+	}
+
+	return collision;
+}
+
+// COLLISION LOOP
+
+for (int i = 0; i < objectsVector.size(); i++) {
+	if (is_colliding(collider, walls[i]->collider)) {
+		// SOME OBJECT SPECIFIC COLLISION STUFF
+
+		break;
+	}
+}
