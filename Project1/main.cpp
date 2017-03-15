@@ -25,6 +25,9 @@ const double FPS = 60.0;
 void ToggleFullscreen(SDL_Window* wind);
 double current_time();
 SDL_Texture* createFont(TTF_Font* font, const char* whatTheFontIs,  SDL_Texture* whereToStore);
+void createTexture(int amountOfObject, const char* file, vector<Obstacles> Ob);
+void createTexture(int amountOfObject, const char* file, vector<Obstacles> Ob, int valueForCandy);
+
 void createNumberFont(vector<Control> &newvector, SDL_Texture* texture, TTF_Font* font);
 
 void update()
@@ -174,6 +177,25 @@ SDL_Texture* createFont(TTF_Font * font, const char * whatTheFontIs ,SDL_Texture
 	textSurface = nullptr;
 	SDL_FreeSurface(textSurface);
 	return newt;
+}
+
+void createTexture(int amountOfObject, const char * file, vector<Obstacles> Ob)
+{
+	SDL_Texture* tmpTex = IMG_LoadTexture(renderer, file);
+	for (int i = 0; i < amountOfObject; i++)
+	{
+		Ob.emplace_back(tmpTex);
+	}
+	
+}
+
+void createTexture(int amountOfObject, const char * file, vector<Obstacles> Ob, int valueForCandy)
+{
+	SDL_Texture* tmpTex = IMG_LoadTexture(renderer, file);
+	for (int i = 0; i < amountOfObject; i++)
+	{
+		Ob.emplace_back(tmpTex, valueForCandy);
+	}
 }
 
 void createNumberFont(vector<Control>& newvector, SDL_Texture* texture, TTF_Font* font)
