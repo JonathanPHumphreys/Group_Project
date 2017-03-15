@@ -56,7 +56,7 @@ void process_input()
 				//movement
 				//-----------------------------------------------------
 			case SDLK_f:
-				player.score++;
+				player.score++;//TODO: ADD SCORE
 				break;
 
 			case SDLK_RETURN:
@@ -143,6 +143,8 @@ int main(int argc, char* argv[])
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
+	//delete &player;
+
 	SDL_Quit();
 	IMG_Quit();
 	TTF_CloseFont(font);//needs to be font in here to close
@@ -169,7 +171,7 @@ void createNumberFont(vector<Control>& newvector, SDL_Texture* texture, TTF_Font
 
 	for (int i = 0; i < 10; i++)
 	{
-		cout << player.numbers[i] << endl;
+		//cout << player.numbers[i] << endl;
 		SDL_Surface *textSurface = TTF_RenderText_Solid(font, player.numbers[i], Con.black);
 		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
 		textSurface = nullptr;

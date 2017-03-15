@@ -25,4 +25,10 @@ void Player::addScore(int whatToAdd)
 
 Player::~Player()
 {
+	SDL_DestroyTexture(playerTexture);
+	SDL_DestroyTexture(endPoint);
+	SDL_DestroyTexture(scoreText);
+	SDL_DestroyTexture(numbersText);
+	playerSurface = nullptr;
+	SDL_FreeSurface(playerSurface);
 }
