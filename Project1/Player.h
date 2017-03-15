@@ -19,7 +19,7 @@ public:
 	SDL_Surface playerSurface;
 	SDL_Rect destination;
 	SDL_Rect scoreRect = { 5,5, 30, 30 };
-	SDL_Rect numbeRect = { 15,5, 30, 30 };
+	SDL_Rect numbeRect = { 80,13, 20, 25 };
 	int score = 0;
 	char* numbers[10] = { "0","1","2","3","4","5","6","7","8","9" };//for displaying the player score.
 };

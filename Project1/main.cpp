@@ -55,6 +55,10 @@ void process_input()
 				//---------------------------------------------------
 				//movement
 				//-----------------------------------------------------
+			case SDLK_f:
+				player.score++;
+				break;
+
 			case SDLK_RETURN:
 				if (event.key.keysym.mod & KMOD_LALT)
 					ToggleFullscreen(window);
@@ -73,6 +77,7 @@ void render()
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 	SDL_RenderClear(renderer);//need to clear before displaying	
 	SDL_RenderCopy(renderer, player.scoreText, NULL, &player.scoreRect);
+	SDL_RenderCopy(renderer, ControlVec[0 + player.score].font, NULL, &player.numbeRect);
 	SDL_RenderPresent(renderer);
 }
 
