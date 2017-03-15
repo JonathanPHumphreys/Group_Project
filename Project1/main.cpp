@@ -25,7 +25,7 @@ const double FPS = 60.0;
 void ToggleFullscreen(SDL_Window* wind);
 double current_time();
 SDL_Texture* createFont(TTF_Font* font, const char* whatTheFontIs,  SDL_Texture* whereToStore);
-void createNumberFont(vector<Control> &newvector, SDL_Texture* texture, int[10]);
+void createNumberFont(vector<Control> &newvector, SDL_Texture* texture, TTF_Font* font);
 
 void update()
 {
@@ -113,10 +113,8 @@ int main(int argc, char* argv[])
 	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
 	
 	player.scoreText = createFont(font, "Score: ", player.scoreText);
-	for (int i = 0; i < 10; i++)
-	{
-		//do stuff.
-	}
+	
+	createNumberFont(ControlVec, Con.font, font);
 
 	SDL_QueryTexture(player.scoreText, NULL, NULL, &player.scoreRect.w, &player.scoreRect.h);
 
@@ -161,12 +159,13 @@ SDL_Texture* createFont(TTF_Font * font, const char * whatTheFontIs ,SDL_Texture
 	return newt;
 }
 
-void createNumberFont(vector<Control>& newvector, SDL_Texture* texture, int[10] , TTF_Font* font)
+void createNumberFont(vector<Control>& newvector, SDL_Texture* texture, TTF_Font* font)
 {
 
 	for (int i = 0; i < 10; i++)
 	{
-		SDL_Surface *textSurface = TTF_RenderText_Solid(font, "needtodothis", Con.black);
+		cout << player.numbers[i] << endl;
+		SDL_Surface *textSurface = TTF_RenderText_Solid(font, player.numbers[i], Con.black);
 		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
 		textSurface = nullptr;
 		SDL_FreeSurface(textSurface);
