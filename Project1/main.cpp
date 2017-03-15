@@ -33,7 +33,13 @@ void createNumberFont(vector<Control> &newvector, SDL_Texture* texture, TTF_Font
 
 void update()
 {
-
+	// UNCOMMENT THIS STUFF IF createTexture() IS USED IN MAIN
+	/*
+	for (int i = 0; i < ObVec.size(); i++)
+	{
+		if (player.is_colliding(player.destination, ObVec[i].wall_destination));
+	}
+	*/
 }
 
 void process_input()

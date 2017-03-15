@@ -26,3 +26,25 @@ Player::~Player()
 	playerSurface = nullptr;
 	SDL_FreeSurface(playerSurface);
 }
+
+bool Player::is_colliding(SDL_Rect &a, SDL_Rect &b) {
+	bool collision = true;
+
+	if (a.y + a.h <= b.y) {
+		collision = false;
+	}
+	else if (a.y >= b.y + b.h)
+	{
+		collision = false;
+	}
+	else if (a.x + a.w <= b.x)
+	{
+		collision = false;
+	}
+	else if (a.x >= b.x + b.w)
+	{
+		collision = false;
+	}
+
+	return collision;
+}

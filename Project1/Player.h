@@ -8,6 +8,7 @@ public:
 	//functions
 	Player(SDL_Texture* INIT_TEXT);//initialise texture 
 	void init_Rect(SDL_Rect &rect ,int x, int y, int w, int h);
+	bool is_colliding(SDL_Rect &, SDL_Rect &);
 
 	~Player();
 	//variables
