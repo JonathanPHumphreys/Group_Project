@@ -14,7 +14,7 @@ public:
 	SDL_Texture* Wall;
 	SDL_Texture* Collectible;
 	SDL_Rect wall_destination;
-	SDL_Rect coll_destination;
+	SDL_Rect candy_destination;
 	
 	int Map[10][10];
 	int value = 0;
