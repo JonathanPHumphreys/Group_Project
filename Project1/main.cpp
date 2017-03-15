@@ -5,6 +5,9 @@
 
 Player player;
 Obstacles Ob;
+Control Con;
+
+vector<Control> ControlVec;
 
 using namespace std;
 
@@ -21,7 +24,8 @@ const double FPS = 60.0;
 
 void ToggleFullscreen(SDL_Window* wind);
 double current_time();
-SDL_Texture* createFont(TTF_Font* font, const char* whatTheFontIs, SDL_Color color, SDL_Texture* whereToStore);
+SDL_Texture* createFont(TTF_Font* font, const char* whatTheFontIs,  SDL_Texture* whereToStore);
+void createNumberFont(vector<Control> &newvector, SDL_Texture* texture, int[10]);
 
 void update()
 {
@@ -108,7 +112,11 @@ int main(int argc, char* argv[])
 	old_time = current_time();
 	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
 	
-	player.scoreText = createFont(font, "Score: ", Ob.black, player.scoreText);
+	player.scoreText = createFont(font, "Score: ", player.scoreText);
+	for (int i = 0; i < 10; i++)
+	{
+		//do stuff.
+	}
 
 	SDL_QueryTexture(player.scoreText, NULL, NULL, &player.scoreRect.w, &player.scoreRect.h);
 
@@ -144,11 +152,24 @@ double current_time() {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-SDL_Texture* createFont(TTF_Font * font, const char * whatTheFontIs, SDL_Color color, SDL_Texture * whereToStore)
+SDL_Texture* createFont(TTF_Font * font, const char * whatTheFontIs ,SDL_Texture * whereToStore)
 {
-	SDL_Surface *textSurface = TTF_RenderText_Solid(font, whatTheFontIs, color);
+	SDL_Surface *textSurface = TTF_RenderText_Solid(font, whatTheFontIs, Con.black);
 	SDL_Texture* newt = SDL_CreateTextureFromSurface(renderer, textSurface);
 	textSurface = nullptr;
 	SDL_FreeSurface(textSurface);
 	return newt;
+}
+
+void createNumberFont(vector<Control>& newvector, SDL_Texture* texture, int[10] , TTF_Font* font)
+{
+
+	for (int i = 0; i < 10; i++)
+	{
+		SDL_Surface *textSurface = TTF_RenderText_Solid(font, "needtodothis", Con.black);
+		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+		textSurface = nullptr;
+		SDL_FreeSurface(textSurface);
+		newvector.emplace_back(texture);
+	}
 }

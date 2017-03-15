@@ -15,6 +15,7 @@ public:
 	SDL_Texture* playerTexture;
 	SDL_Texture* endPoint;
 	SDL_Texture* scoreText;
+	SDL_Texture* numbersText;
 	SDL_Surface playerSurface;
 	SDL_Rect destination;
 	SDL_Rect scoreRect = { 5,5, 30, 30 };
