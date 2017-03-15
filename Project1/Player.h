@@ -14,6 +14,7 @@ public:
 	//variables
 	SDL_Texture* playerTexture;
 	SDL_Texture* endPoint;
+	SDL_Texture* scoreText;
 	SDL_Surface playerSurface;
 	SDL_Rect destination;
 	int score = 0;

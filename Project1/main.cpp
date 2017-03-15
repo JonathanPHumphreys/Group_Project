@@ -9,6 +9,7 @@ using namespace std;
 SDL_Window *window;
 SDL_Renderer* renderer;
 SDL_Event event;
+SDL_Rect scoreRect;
 
 bool running = true;
 bool keyPress = false;
@@ -64,6 +65,7 @@ void render()
 {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 	SDL_RenderClear(renderer);//need to clear before displaying	
+	SDL_RenderCopy(renderer, player.scoreText, NULL, &scoreRect);
 	SDL_RenderPresent(renderer);
 }
 
@@ -101,8 +103,8 @@ int main(int argc, char* argv[])
 	}
 
 	old_time = current_time();
-
-	SDL_Color colour = { 123,0,122,255 };
+	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
+	SDL_Color colour = { 225,255,255,255 };
 	SDL_Surface *textSurface = TTF_RenderText_Solid(font, "Score: ", colour);
 	SDL_Texture *text = SDL_CreateTextureFromSurface(renderer, textSurface);
 	player.scoreText = text;
@@ -129,13 +131,14 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	//SDL_FreeSurface();
+	textSurface = nullptr;
+	SDL_FreeSurface(textSurface);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
 	SDL_Quit();
 	IMG_Quit();
-	//TTF_CloseFont();//needs to be font in here to close
+	TTF_CloseFont(font);//needs to be font in here to close
 	TTF_Quit();
 	Mix_Quit();
 	return 0;
