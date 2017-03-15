@@ -1,8 +1,10 @@
 #include "constants.h"
 #include "Player.h"
 #include "Control.h"
+#include "Obstacles.h"
 
 Player player;
+Obstacles Ob;
 
 using namespace std;
 
@@ -104,8 +106,8 @@ int main(int argc, char* argv[])
 
 	old_time = current_time();
 	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
-	SDL_Color colour = { 225,255,255,255 };
-	SDL_Surface *textSurface = TTF_RenderText_Solid(font, "Score: ", colour);
+	
+	SDL_Surface *textSurface = TTF_RenderText_Solid(font, "Score: ", Ob.black);
 	SDL_Texture *text = SDL_CreateTextureFromSurface(renderer, textSurface);
 	player.scoreText = text;
 
