@@ -11,7 +11,7 @@ using namespace std;
 SDL_Window *window;
 SDL_Renderer* renderer;
 SDL_Event event;
-SDL_Rect scoreRect;
+
 
 bool running = true;
 bool keyPress = false;
@@ -68,7 +68,7 @@ void render()
 {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 	SDL_RenderClear(renderer);//need to clear before displaying	
-	SDL_RenderCopy(renderer, player.scoreText, NULL, &scoreRect);
+	SDL_RenderCopy(renderer, player.scoreText, NULL, &player.scoreRect);
 	SDL_RenderPresent(renderer);
 }
 
@@ -110,11 +110,7 @@ int main(int argc, char* argv[])
 	
 	player.scoreText = createFont(font, "Score: ", Ob.black, player.scoreText);
 
-
-	scoreRect.x = 5;//global
-	scoreRect.y = 5;
-
-	SDL_QueryTexture(player.scoreText, NULL, NULL, &scoreRect.w, &scoreRect.h);
+	SDL_QueryTexture(player.scoreText, NULL, NULL, &player.scoreRect.w, &player.scoreRect.h);
 
 
 	while (running) {
