@@ -8,6 +8,7 @@ Obstacles Ob;
 Control Con;
 
 vector<Control> ControlVec;
+vector<Obstacles> ObVec;
 
 using namespace std;
 
@@ -128,13 +129,15 @@ int main(int argc, char* argv[])
 	}
 
 	old_time = current_time();
-	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
-	
-	player.scoreText = createFont(font, "Score: ", player.scoreText);
-	
-	createNumberFont(ControlVec, Con.font, font);
 
+	TTF_Font *font = TTF_OpenFont("XBR.ttf", 30);
+	player.scoreText = createFont(font, "Score: ", player.scoreText);
+	createNumberFont(ControlVec, Con.font, font);
 	SDL_QueryTexture(player.scoreText, NULL, NULL, &player.scoreRect.w, &player.scoreRect.h);
+
+	//for loop to initialise the values of the destinations for candy and walls-->
+
+	//call::constructors for the textures used.
 
 
 	while (running) {
@@ -186,7 +189,6 @@ void createTexture(int amountOfObject, const char * file, vector<Obstacles> Ob)
 	{
 		Ob.emplace_back(tmpTex);
 	}
-	
 }
 
 void createTexture(int amountOfObject, const char * file, vector<Obstacles> Ob, int valueForCandy)
