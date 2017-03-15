@@ -100,9 +100,19 @@ int main(int argc, char* argv[])
 		SDL_GetError();
 	}
 
-
-
 	old_time = current_time();
+
+	SDL_Color colour = { 123,0,122,255 };
+	SDL_Surface *textSurface = TTF_RenderText_Solid(font, "Score: ", colour);
+	SDL_Texture *text = SDL_CreateTextureFromSurface(renderer, textSurface);
+	player.scoreText = text;
+
+
+	scoreRect.x = 5;//global
+	scoreRect.y = 5;
+
+	SDL_QueryTexture(text, NULL, NULL, &scoreRect.w, &scoreRect.h);
+
 
 	while (running) {
 		delta_time = current_time() - old_time;
