@@ -17,12 +17,6 @@ void Player::init_Rect(SDL_Rect & rect, int x, int y, int w, int h)
 	rect.h = h;
 }
 
-void Player::addScore(int whatToAdd)
-{
-	score += whatToAdd;
-}
-
-
 Player::~Player()
 {
 	SDL_DestroyTexture(playerTexture);

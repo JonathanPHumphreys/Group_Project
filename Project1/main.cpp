@@ -56,7 +56,7 @@ void process_input()
 				//movement
 				//-----------------------------------------------------
 			case SDLK_f:
-				player.score++;//TODO: ADD SCORE
+				player.score1++;//TODO: ADD SCORE
 				break;
 
 			case SDLK_RETURN:
@@ -77,7 +77,17 @@ void render()
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 	SDL_RenderClear(renderer);//need to clear before displaying	
 	SDL_RenderCopy(renderer, player.scoreText, NULL, &player.scoreRect);
-	SDL_RenderCopy(renderer, ControlVec[0 + player.score].font, NULL, &player.numbeRect);
+	if (player.score1 > 9)
+	{
+		if (player.score0 > 9)
+		{
+			//cannot be past 99 - TODO: CONDITION
+		}
+		player.score1 = 0;
+		player.score0++;
+	}
+	SDL_RenderCopy(renderer, ControlVec[0 + player.score0].font, NULL, &player.numberRect0);
+	SDL_RenderCopy(renderer, ControlVec[0 + player.score1].font, NULL, &player.numberRect1);
 	SDL_RenderPresent(renderer);
 }
 

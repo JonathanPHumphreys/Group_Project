@@ -8,7 +8,6 @@ public:
 	//functions
 	Player(SDL_Texture* INIT_TEXT);//initialise texture 
 	void init_Rect(SDL_Rect &rect ,int x, int y, int w, int h);
-	void addScore(int whatToAdd);
 
 	~Player();
 	//variables
@@ -19,8 +18,10 @@ public:
 	SDL_Surface* playerSurface;
 	SDL_Rect destination;
 	SDL_Rect scoreRect = { 5,5, 30, 30 };
-	SDL_Rect numbeRect = { 80,13, 20, 25 };
-	int score = 0;
+	SDL_Rect numberRect0 = { 80,11, 17, 28 };
+	SDL_Rect numberRect1 = { 100,11, 17, 28 };//+30
+	int score0 = 0;
+	int score1 = 0;
 	char* numbers[10] = { "0","1","2","3","4","5","6","7","8","9" };//for displaying the player score.
 };
 
