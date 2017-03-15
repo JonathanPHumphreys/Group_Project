@@ -9,4 +9,3 @@ public:
 	~Control();
 	SDL_Texture* font;
 };
-
