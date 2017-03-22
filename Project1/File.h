@@ -2,8 +2,16 @@
 #include "constants.h"
 
 class File {
-	ifstream map_data_in;
+	ifstream reader;
 public:
-	array<array<int, 28>, 31> map_data;
 	File();
+	File(const char* file);
+	File(int num);
+	~File();
+	
+	int Map[11][15];
+	char c = '0';
+	int num = 0;
+private:
+
 };

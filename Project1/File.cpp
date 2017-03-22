@@ -1,14 +1,41 @@
 #include "File.h"
 
 File::File() {
-	map_data_in.open("assets/map.txt");
-	char c;
-	int num;
 
-	for (int i = 0; i < map_data.size(); i++) {
-		for (int j = 0; j < map_data[i].size() && map_data_in.get(c); j++) {
-			num = c - '0';
-			map_data[i][j] = num;
-		}
+}
+
+File::File(const char* file)
+{
+	reader.open(file);
+	if (!reader.is_open())
+	{
+		SDL_Log("map not found");
+		exit(EXIT_FAILURE);
 	}
+	char num;
+	reader >> num;
+	while (reader.good())
+	{
+		for (int i = 0; i < 11; i++)
+		{
+			for (int j = 0; j < 15; j++)
+			{
+				int c = num - 48;//convert to int
+				Map[i][j] = c;
+				//cout << Map[i][j];
+				reader >> num;
+			}
+			//cout << endl;
+		}
+		break;
+	}
+}
+
+File::File(int num)
+{
+	num = num;
+}
+
+File::~File()
+{
 }
